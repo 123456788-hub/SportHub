@@ -1,282 +1,160 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SportHub</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SportHub</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
-
-    body {
-      background: #f4f6f8;
-      color: #111827;
-    }
-
-    header {
-      background: #111827;
-      color: white;
-      padding: 20px;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    .header-content {
-      max-width: 1100px;
-      margin: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .logo {
-      font-size: 26px;
-      font-weight: bold;
-    }
-
-    .logo span {
-      color: #38bdf8;
-    }
-
-    .search {
-      padding: 11px 15px;
-      border-radius: 10px;
-      border: none;
-      width: 230px;
-    }
-
-    main {
-      max-width: 1100px;
-      margin: auto;
-      padding: 25px 15px 100px;
-    }
-
-    .hero {
-      background: white;
-      border-radius: 18px;
-      padding: 30px;
-      margin-bottom: 25px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-    }
-
-    .hero h1 {
-      font-size: 32px;
-      margin-bottom: 10px;
-    }
-
-    .hero p {
-      color: #6b7280;
-    }
-
-    .sports {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 12px;
-      margin-bottom: 30px;
-    }
-
-    .sport {
-      background: white;
-      border: none;
-      border-radius: 15px;
-      padding: 18px 10px;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: bold;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-      transition: 0.2s;
-    }
-
-    .sport:hover {
-      transform: translateY(-3px);
-    }
-
-    .sport.active {
-      background: #111827;
-      color: white;
-    }
-
-    .section-title {
-      margin-bottom: 15px;
-      font-size: 22px;
-    }
-
-    .matches {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 15px;
-    }
-
-    .match {
-      background: white;
-      border-radius: 15px;
-      padding: 20px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-    }
-
-    .match-top {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 15px;
-      color: #6b7280;
-      font-size: 14px;
-    }
-
-    .live {
-      color: #dc2626;
-      font-weight: bold;
-    }
-
-    .teams {
-      font-size: 18px;
-      font-weight: bold;
-      line-height: 1.8;
-    }
-
-    .score {
-      float: right;
-    }
-
-    .bottom-nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: white;
-      border-top: 1px solid #ddd;
-      display: flex;
-      justify-content: center;
-      gap: 35px;
-      padding: 13px;
-      z-index: 20;
-    }
-
-    .bottom-nav button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 14px;
-      color: #374151;
-    }
-
-    @media (max-width: 600px) {
-      .header-content {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .search {
-        width: 100%;
-      }
-
-      .hero h1 {
-        font-size: 26px;
-      }
-    }
-  </style>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#f3f4f6;color:#111827}
+header{background:#111827;color:white;padding:20px}
+.container{max-width:1100px;margin:auto}
+.logo{font-size:28px;font-weight:bold}
+.logo span{color:#38bdf8}
+.hero{background:white;margin:25px 0;padding:30px;border-radius:20px}
+.hero h1{font-size:32px;margin-bottom:10px}
+.hero p{color:#6b7280}
+.sports{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:20px 0 30px}
+.sport{border:0;background:white;padding:18px 10px;border-radius:15px;font-size:16px;font-weight:bold;cursor:pointer;box-shadow:0 3px 10px #00000010}
+.sport.active{background:#111827;color:white}
+.section{margin-bottom:30px}
+.section h2{margin-bottom:15px}
+.card{background:white;border-radius:16px;padding:20px;margin-bottom:12px;box-shadow:0 3px 10px #0000000d}
+.card-top{display:flex;justify-content:space-between;color:#6b7280;margin-bottom:12px}
+.live{color:#dc2626;font-weight:bold}
+.team{font-size:18px;font-weight:bold;padding:5px 0}
+.score{float:right}
+.info{color:#6b7280}
+nav{position:fixed;bottom:0;left:0;right:0;background:white;border-top:1px solid #ddd;padding:14px;text-align:center}
+nav button{border:0;background:none;margin:0 15px;font-size:14px;cursor:pointer}
+main{padding-bottom:80px}
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="header-content">
-    <div class="logo">Sport<span>Hub</span></div>
-    <input class="search" type="text" placeholder="Cerca sport, squadra, atleta...">
-  </div>
+<div class="container">
+<div class="logo">Sport<span>Hub</span></div>
+</div>
 </header>
 
-<main>
+<main class="container">
 
-  <section class="hero">
-    <h1>Tutto lo sport in un'unica app</h1>
-    <p>Risultati, partite, classifiche e atleti.</p>
-  </section>
+<div class="hero">
+<h1>Tutto lo sport in un'unica app</h1>
+<p>Risultati, eventi, classifiche e atleti.</p>
+</div>
 
-  <h2 class="section-title">Scegli uno sport</h2>
+<div class="section">
+<h2>Scegli uno sport</h2>
 
-  <section class="sports">
-    <button class="sport active">⚽ Calcio</button>
-    <button class="sport">🏀 Basket</button>
-    <button class="sport">🎾 Tennis</button>
-    <button class="sport">🏎️ Formula 1</button>
-    <button class="sport">🏈 Football</button>
-    <button class="sport">⚾ Baseball</button>
-    <button class="sport">🏒 Hockey</button>
-    <button class="sport">🏐 Volley</button>
-    <button class="sport">🥊 Boxe</button>
-    <button class="sport">🏉 Rugby</button>
-    <button class="sport">⛳ Golf</button>
-    <button class="sport">🏊 Nuoto</button>
-  </section>
+<div class="sports">
+<button class="sport active" data-sport="Calcio">⚽ Calcio</button>
+<button class="sport" data-sport="Basket">🏀 Basket</button>
+<button class="sport" data-sport="Tennis">🎾 Tennis</button>
+<button class="sport" data-sport="Formula 1">🏎️ Formula 1</button>
+<button class="sport" data-sport="Football">🏈 Football</button>
+<button class="sport" data-sport="Baseball">⚾ Baseball</button>
+<button class="sport" data-sport="Hockey">🏒 Hockey</button>
+<button class="sport" data-sport="Volley">🏐 Volley</button>
+<button class="sport" data-sport="Boxe">🥊 Boxe</button>
+<button class="sport" data-sport="Rugby">🏉 Rugby</button>
+<button class="sport" data-sport="Golf">⛳ Golf</button>
+<button class="sport" data-sport="Nuoto">🏊 Nuoto</button>
+</div>
+</div>
 
-  <h2 class="section-title">Partite in evidenza</h2>
+<div class="section">
+<h2 id="sportTitle">⚽ Calcio</h2>
 
-  <section class="matches">
+<div class="card">
+<div class="card-top">
+<span id="competition">SportHub</span>
+<span class="info">Dati in arrivo</span>
+</div>
 
-    <div class="match">
-      <div class="match-top">
-        <span>Calcio</span>
-        <span class="live">● LIVE</span>
-      </div>
+<div class="team">
+Partite
+<span class="score">—</span>
+</div>
 
-      <div class="teams">
-        Squadra A <span class="score">1</span><br>
-        Squadra B <span class="score">0</span>
-      </div>
-    </div>
+<p class="info">
+Collegheremo qui i risultati reali.
+</p>
+</div>
 
-    <div class="match">
-      <div class="match-top">
-        <span>Basket</span>
-        <span>20:30</span>
-      </div>
+<div class="card">
+<div class="card-top">
+<span>Classifiche</span>
+<span>🏆</span>
+</div>
 
-      <div class="teams">
-        Team A <span class="score">-</span><br>
-        Team B <span class="score">-</span>
-      </div>
-    </div>
+<p class="info">
+Le classifiche reali verranno aggiunte nel prossimo passaggio.
+</p>
+</div>
 
-    <div class="match">
-      <div class="match-top">
-        <span>Tennis</span>
-        <span>21:00</span>
-      </div>
+<div class="card">
+<div class="card-top">
+<span>Atleti</span>
+<span>👤</span>
+</div>
 
-      <div class="teams">
-        Giocatore A <span class="score">-</span><br>
-        Giocatore B <span class="score">-</span>
-      </div>
-    </div>
+<p class="info">
+Gli atleti verranno caricati dai dati sportivi reali.
+</p>
+</div>
 
-  </section>
+</div>
 
 </main>
 
-<nav class="bottom-nav">
-  <button>🏠 Home</button>
-  <button>🔴 Live</button>
-  <button>🏆 Classifiche</button>
-  <button>⭐ Preferiti</button>
-  <button>👤 Profilo</button>
+<nav>
+<button>🏠 Home</button>
+<button>🔴 Live</button>
+<button>🏆 Classifiche</button>
+<button>⭐ Preferiti</button>
+<button>👤 Profilo</button>
 </nav>
 
 <script>
-  const sports = document.querySelectorAll(".sport");
 
-  sports.forEach(button => {
-    button.addEventListener("click", () => {
-      sports.forEach(b => b.classList.remove("active"));
-      button.classList.add("active");
-    });
-  });
+const buttons = document.querySelectorAll(".sport");
+const title = document.getElementById("sportTitle");
+
+buttons.forEach(button => {
+
+button.addEventListener("click", () => {
+
+buttons.forEach(b => b.classList.remove("active"));
+
+button.classList.add("active");
+
+const sport = button.dataset.sport;
+
+const emojis = {
+"Calcio":"⚽",
+"Basket":"🏀",
+"Tennis":"🎾",
+"Formula 1":"🏎️",
+"Football":"🏈",
+"Baseball":"⚾",
+"Hockey":"🏒",
+"Volley":"🏐",
+"Boxe":"🥊",
+"Rugby":"🏉",
+"Golf":"⛳",
+"Nuoto":"🏊"
+};
+
+title.textContent = emojis[sport] + " " + sport;
+
+});
+
+});
+
 </script>
 
 </body>
