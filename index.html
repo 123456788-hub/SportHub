@@ -6,152 +6,337 @@
 <title>SportHub</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#f3f4f6;color:#111827}
-header{background:#111827;color:white;padding:20px}
-.container{max-width:1100px;margin:auto}
-.logo{font-size:28px;font-weight:bold}
-.logo span{color:#38bdf8}
-.hero{background:white;margin:25px 0;padding:30px;border-radius:20px}
-.hero h1{font-size:32px;margin-bottom:10px}
-.hero p{color:#6b7280}
-.sports{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:20px 0 30px}
-.sport{border:0;background:white;padding:18px 10px;border-radius:15px;font-size:16px;font-weight:bold;cursor:pointer;box-shadow:0 3px 10px #00000010}
-.sport.active{background:#111827;color:white}
-.section{margin-bottom:30px}
-.section h2{margin-bottom:15px}
-.card{background:white;border-radius:16px;padding:20px;margin-bottom:12px;box-shadow:0 3px 10px #0000000d}
-.card-top{display:flex;justify-content:space-between;color:#6b7280;margin-bottom:12px}
-.live{color:#dc2626;font-weight:bold}
-.team{font-size:18px;font-weight:bold;padding:5px 0}
-.score{float:right}
-.info{color:#6b7280}
-nav{position:fixed;bottom:0;left:0;right:0;background:white;border-top:1px solid #ddd;padding:14px;text-align:center}
-nav button{border:0;background:none;margin:0 15px;font-size:14px;cursor:pointer}
-main{padding-bottom:80px}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f3f4f6;
+  color: #111827;
+}
+
+header {
+  background: #111827;
+  color: white;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #38bdf8;
+}
+
+main {
+  padding: 25px 15px 90px;
+}
+
+.hero {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  color: #6b7280;
+}
+
+.sports {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  margin: 20px 0 30px;
+}
+
+.sport {
+  border: 0;
+  background: white;
+  padding: 18px 10px;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 3px 10px #00000012;
+}
+
+.sport.active {
+  background: #111827;
+  color: white;
+}
+
+.section {
+  margin-bottom: 25px;
+}
+
+.section h2 {
+  margin-bottom: 15px;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 12px;
+  box-shadow: 0 3px 10px #0000000d;
+}
+
+.card-title {
+  font-size: 19px;
+  font-weight: bold;
+  margin-bottom: 12px;
+}
+
+.item {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.small {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.score {
+  float: right;
+  font-weight: bold;
+}
+
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  border-top: 1px solid #ddd;
+  padding: 14px;
+  text-align: center;
+}
+
+nav button {
+  border: 0;
+  background: none;
+  margin: 0 12px;
+  font-size: 14px;
+  cursor: pointer;
+}
 </style>
 </head>
 
 <body>
 
 <header>
-<div class="container">
-<div class="logo">Sport<span>Hub</span></div>
-</div>
+  <div class="container">
+    <div class="logo">Sport<span>Hub</span></div>
+  </div>
 </header>
 
 <main class="container">
 
-<div class="hero">
-<h1>Tutto lo sport in un'unica app</h1>
-<p>Risultati, eventi, classifiche e atleti.</p>
-</div>
+  <div class="hero">
+    <h1>Tutto lo sport in un'unica app</h1>
+    <p>Risultati, classifiche ed atleti.</p>
+  </div>
 
-<div class="section">
-<h2>Scegli uno sport</h2>
+  <div class="section">
+    <h2>Scegli uno sport</h2>
 
-<div class="sports">
-<button class="sport active" data-sport="Calcio">⚽ Calcio</button>
-<button class="sport" data-sport="Basket">🏀 Basket</button>
-<button class="sport" data-sport="Tennis">🎾 Tennis</button>
-<button class="sport" data-sport="Formula 1">🏎️ Formula 1</button>
-<button class="sport" data-sport="Football">🏈 Football</button>
-<button class="sport" data-sport="Baseball">⚾ Baseball</button>
-<button class="sport" data-sport="Hockey">🏒 Hockey</button>
-<button class="sport" data-sport="Volley">🏐 Volley</button>
-<button class="sport" data-sport="Boxe">🥊 Boxe</button>
-<button class="sport" data-sport="Rugby">🏉 Rugby</button>
-<button class="sport" data-sport="Golf">⛳ Golf</button>
-<button class="sport" data-sport="Nuoto">🏊 Nuoto</button>
-</div>
-</div>
+    <div class="sports">
 
-<div class="section">
-<h2 id="sportTitle">⚽ Calcio</h2>
+      <button class="sport active" data-sport="calcio">⚽ Calcio</button>
+      <button class="sport" data-sport="basket">🏀 Basket</button>
+      <button class="sport" data-sport="tennis">🎾 Tennis</button>
+      <button class="sport" data-sport="f1">🏎️ Formula 1</button>
+      <button class="sport" data-sport="football">🏈 Football</button>
+      <button class="sport" data-sport="baseball">⚾ Baseball</button>
+      <button class="sport" data-sport="hockey">🏒 Hockey</button>
+      <button class="sport" data-sport="volley">🏐 Volley</button>
+      <button class="sport" data-sport="boxe">🥊 Boxe</button>
+      <button class="sport" data-sport="rugby">🏉 Rugby</button>
+      <button class="sport" data-sport="golf">⛳ Golf</button>
+      <button class="sport" data-sport="nuoto">🏊 Nuoto</button>
 
-<div class="card">
-<div class="card-top">
-<span id="competition">SportHub</span>
-<span class="info">Dati in arrivo</span>
-</div>
+    </div>
+  </div>
 
-<div class="team">
-Partite
-<span class="score">—</span>
-</div>
+  <div class="section">
 
-<p class="info">
-Collegheremo qui i risultati reali.
-</p>
-</div>
+    <h2 id="sportTitle">⚽ Calcio</h2>
 
-<div class="card">
-<div class="card-top">
-<span>Classifiche</span>
-<span>🏆</span>
-</div>
+    <div class="card">
+      <div class="card-title">🏆 Partite</div>
+      <div id="matches"></div>
+    </div>
 
-<p class="info">
-Le classifiche reali verranno aggiunte nel prossimo passaggio.
-</p>
-</div>
+    <div class="card">
+      <div class="card-title">📊 Classifiche</div>
+      <div id="standings"></div>
+    </div>
 
-<div class="card">
-<div class="card-top">
-<span>Atleti</span>
-<span>👤</span>
-</div>
+    <div class="card">
+      <div class="card-title">👤 Atleti</div>
+      <div id="athletes"></div>
+    </div>
 
-<p class="info">
-Gli atleti verranno caricati dai dati sportivi reali.
-</p>
-</div>
-
-</div>
+  </div>
 
 </main>
 
 <nav>
-<button>🏠 Home</button>
-<button>🔴 Live</button>
-<button>🏆 Classifiche</button>
-<button>⭐ Preferiti</button>
-<button>👤 Profilo</button>
+  <button>🏠 Home</button>
+  <button>🔴 Live</button>
+  <button>🏆 Classifiche</button>
+  <button>⭐ Preferiti</button>
+  <button>👤 Profilo</button>
 </nav>
 
 <script>
 
-const buttons = document.querySelectorAll(".sport");
-const title = document.getElementById("sportTitle");
+const data = {
 
-buttons.forEach(button => {
+calcio: {
+  title: "⚽ Calcio",
+  matches: ["Inter — Milan", "Real Madrid — Barcelona", "Juventus — Napoli"],
+  standings: ["1. Inter", "2. Napoli", "3. Juventus"],
+  athletes: ["Lautaro Martínez", "Kylian Mbappé", "Erling Haaland"]
+},
 
-button.addEventListener("click", () => {
+basket: {
+  title: "🏀 Basket",
+  matches: ["Lakers — Celtics", "Warriors — Suns", "Bulls — Knicks"],
+  standings: ["1. Celtics", "2. Lakers", "3. Warriors"],
+  athletes: ["LeBron James", "Stephen Curry", "Nikola Jokić"]
+},
 
-buttons.forEach(b => b.classList.remove("active"));
+tennis: {
+  title: "🎾 Tennis",
+  matches: ["Semifinale", "Quarti di finale", "Finale"],
+  standings: ["ATP Ranking", "WTA Ranking", "Tornei"],
+  athletes: ["Carlos Alcaraz", "Jannik Sinner", "Novak Djokovic"]
+},
 
-button.classList.add("active");
+f1: {
+  title: "🏎️ Formula 1",
+  matches: ["Gran Premio", "Qualifiche", "Sprint"],
+  standings: ["1. Classifica piloti", "2. Classifica costruttori", "3. Classifica mondiale"],
+  athletes: ["Max Verstappen", "Charles Leclerc", "Lando Norris"]
+},
 
-const sport = button.dataset.sport;
+football: {
+  title: "🏈 Football",
+  matches: ["Chiefs — Bills", "Eagles — Cowboys", "49ers — Rams"],
+  standings: ["1. AFC", "2. NFC", "3. Classifica generale"],
+  athletes: ["Patrick Mahomes", "Josh Allen", "Lamar Jackson"]
+},
 
-const emojis = {
-"Calcio":"⚽",
-"Basket":"🏀",
-"Tennis":"🎾",
-"Formula 1":"🏎️",
-"Football":"🏈",
-"Baseball":"⚾",
-"Hockey":"🏒",
-"Volley":"🏐",
-"Boxe":"🥊",
-"Rugby":"🏉",
-"Golf":"⛳",
-"Nuoto":"🏊"
+baseball: {
+  title: "⚾ Baseball",
+  matches: ["Yankees — Red Sox", "Dodgers — Giants", "Cubs — Mets"],
+  standings: ["1. American League", "2. National League", "3. Division"],
+  athletes: ["Shohei Ohtani", "Aaron Judge", "Mookie Betts"]
+},
+
+hockey: {
+  title: "🏒 Hockey",
+  matches: ["Rangers — Bruins", "Maple Leafs — Canadiens", "Oilers — Flames"],
+  standings: ["1. Eastern Conference", "2. Western Conference", "3. NHL"],
+  athletes: ["Connor McDavid", "Sidney Crosby", "Auston Matthews"]
+},
+
+volley: {
+  title: "🏐 Volley",
+  matches: ["Italia — Brasile", "Polonia — Francia", "USA — Giappone"],
+  standings: ["1. Italia", "2. Brasile", "3. Polonia"],
+  athletes: ["Simone Giannelli", "Paola Egonu", "Alessandro Michieletto"]
+},
+
+boxe: {
+  title: "🥊 Boxe",
+  matches: ["Match mondiale", "Semifinale", "Titolo internazionale"],
+  standings: ["Pesi massimi", "Pesi medi", "Pesi welter"],
+  athletes: ["Oleksandr Usyk", "Tyson Fury", "Canelo Álvarez"]
+},
+
+rugby: {
+  title: "🏉 Rugby",
+  matches: ["Italia — Francia", "Inghilterra — Irlanda", "Galles — Scozia"],
+  standings: ["1. Francia", "2. Irlanda", "3. Inghilterra"],
+  athletes: ["Antoine Dupont", "Maro Itoje", "Tommaso Allan"]
+},
+
+golf: {
+  title: "⛳ Golf",
+  matches: ["Torneo PGA", "European Tour", "Major"],
+  standings: ["1. Ranking mondiale", "2. PGA Tour", "3. Race"],
+  athletes: ["Scottie Scheffler", "Rory McIlroy", "Jon Rahm"]
+},
+
+nuoto: {
+  title: "🏊 Nuoto",
+  matches: ["100m stile libero", "200m misti", "4x100m"],
+  standings: ["Campionati mondiali", "Ranking", "Medaglie"],
+  athletes: ["Léon Marchand", "Katie Ledecky", "Thomas Ceccon"]
+}
+
 };
 
-title.textContent = emojis[sport] + " " + sport;
+function showSport(sport) {
 
-});
+  const selected = data[sport];
+
+  document.getElementById("sportTitle").textContent = selected.title;
+
+  document.getElementById("matches").innerHTML =
+    selected.matches.map(x =>
+      `<div class="item">${x}<span class="score">—</span></div>`
+    ).join("");
+
+  document.getElementById("standings").innerHTML =
+    selected.standings.map(x =>
+      `<div class="item">${x}</div>`
+    ).join("");
+
+  document.getElementById("athletes").innerHTML =
+    selected.athletes.map(x =>
+      `<div class="item">${x}</div>`
+    ).join("");
+}
+
+showSport("calcio");
+
+document.querySelectorAll(".sport").forEach(button => {
+
+  button.addEventListener("click", () => {
+
+    document.querySelectorAll(".sport").forEach(b => {
+      b.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    showSport(button.dataset.sport);
+
+  });
 
 });
 
